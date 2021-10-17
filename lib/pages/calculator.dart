@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mpsd_assignment/pages/components/header.dart';
 import 'package:mpsd_assignment/constant.dart';
 import 'package:mpsd_assignment/pages/components/menu.dart';
+import 'package:mpsd_assignment/pages/components/round_text_field.dart';
 
 class RiskCalculator extends StatefulWidget {
   const RiskCalculator({Key? key}) : super(key: key);
@@ -69,18 +70,14 @@ class _RiskCalculatorState extends State<RiskCalculator> {
                     style: kTitleTextstyle,
                   ),
                   smallSpace,
-                  TextField(
-                    controller: txtController,
-                  ),
+                  const RoundTextField(title: "Name the State"),
                   space,
                   const Text(
                     "Indoors or Outdoors?",
                     style: kTitleTextstyle,
                   ),
                   smallSpace,
-                  TextField(
-                    controller: txtController1,
-                  ),
+                  const RoundTextField(title: "Select Place"),
                   space,
                   ElevatedButton.icon(
                     onPressed: () {},
