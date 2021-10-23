@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:mpsd_assignment/constant.dart';
-import 'package:mpsd_assignment/pages/calculator.dart';
+import 'package:mpsd_assignment/pages/service_pages/calculator.dart';
 import 'package:mpsd_assignment/pages/home.dart';
-import 'package:mpsd_assignment/pages/ppv.dart';
+import 'package:mpsd_assignment/pages/service_pages/ppv.dart';
 import 'package:mpsd_assignment/pages/profile.dart';
-import 'package:mpsd_assignment/pages/sop.dart';
+import 'package:mpsd_assignment/pages/service_pages/sop.dart';
 
 class NavDrawer extends StatelessWidget {
   const NavDrawer({Key? key}) : super(key: key);
