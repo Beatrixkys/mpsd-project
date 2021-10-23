@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mpsd_assignment/pages/components/animated_image.dart';
 import 'package:mpsd_assignment/pages/components/round_text_field.dart';
 
-import '../constant.dart';
+import '../../constant.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);

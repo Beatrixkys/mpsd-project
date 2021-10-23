@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:mpsd_assignment/constant.dart';
-import 'package:mpsd_assignment/pages/calculator.dart';
+import 'package:mpsd_assignment/pages/service_pages/calculator.dart';
 import 'package:mpsd_assignment/pages/components/header.dart';
 import 'package:intl/intl.dart';
 import 'package:location/location.dart';
 import 'package:mpsd_assignment/pages/components/counter.dart';
 import 'package:mpsd_assignment/pages/components/menu.dart';
-import 'package:mpsd_assignment/pages/ppv.dart';
-import 'package:mpsd_assignment/pages/sop.dart';
+import 'package:mpsd_assignment/pages/service_pages/ppv.dart';
+import 'package:mpsd_assignment/pages/service_pages/sop.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -214,7 +214,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.white,
                       ),
 
-                      //replace with working map soon
+                      //TODO: replace with working map soon
                       child: Image.asset(
                         "assets/images/map.png",
                         fit: BoxFit.contain,
