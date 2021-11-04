@@ -60,14 +60,14 @@ class _HomeScreenState extends State<HomeScreen> {
   //Scroll Function
   @override
   void initState() {
-    // TODO: implement initState
+    // implement initState
     super.initState();
     controller.addListener(onScroll);
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    // implement dispose
     controller.dispose();
     super.dispose();
   }

@@ -17,14 +17,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
   //Scroll Function
   @override
   void initState() {
-    // TODO: implement initState
+    // implement initState
     super.initState();
     controller.addListener(onScroll);
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    // implement dispose
     controller.dispose();
     super.dispose();
   }
@@ -69,9 +69,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
               space,
-              const RoundTextField(title: "Username"),
+              const RoundTextField(
+                title: "Username",
+                obscureStatus: false,
+              ),
               smallSpace,
-              const RoundTextField(title: "Password"),
+              const RoundTextField(
+                title: "Password",
+                obscureStatus: true,
+              ),
               smallSpace,
               ElevatedButton(
                 onPressed: () {},

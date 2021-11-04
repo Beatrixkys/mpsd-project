@@ -20,7 +20,7 @@ class _RiskCalculatorState extends State<RiskCalculator> {
   //Scroll Function
   @override
   void initState() {
-    // TODO: implement initState
+    // implement initState
     super.initState();
     controller.addListener(onScroll);
   }
@@ -70,14 +70,20 @@ class _RiskCalculatorState extends State<RiskCalculator> {
                     style: kTitleTextstyle,
                   ),
                   smallSpace,
-                  const RoundTextField(title: "Name the State"),
+                  const RoundTextField(
+                    title: "Name the State",
+                    obscureStatus: false,
+                  ),
                   space,
                   const Text(
                     "Indoors or Outdoors?",
                     style: kTitleTextstyle,
                   ),
                   smallSpace,
-                  const RoundTextField(title: "Select Place"),
+                  const RoundTextField(
+                    title: "Select Place",
+                    obscureStatus: false,
+                  ),
                   space,
                   ElevatedButton.icon(
                     onPressed: () {},
