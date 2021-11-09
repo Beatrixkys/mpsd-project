@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:mpsd_assignment/constant.dart';
 import 'package:mpsd_assignment/pages/components/animated_image.dart';
 import 'package:mpsd_assignment/pages/components/round_text_field.dart';
+import 'package:mpsd_assignment/services/auth.dart';
+import 'package:provider/provider.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -37,6 +39,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final authService = Provider.of<AuthService>(context);
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(colors: [
@@ -53,34 +59,42 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const SizedBox(
                 width: double.infinity,
                 child: AnimatedImage(
-                    image1: "assets/images/clouds.png",
-                    image2: "assets/images/bird2.png"),
+                    image1: "assets/images/virus.png",
+                    image2: "assets/images/virusfloat.png"),
               ),
               const Center(
                 child: Text(
                   "Hi There!",
-                  style: kSubTextStyle,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               const SizedBox(
                 child: Text(
-                  "Let's Soar Together",
+                  "Let's Stay Safe",
                   style: kHeadingTextStyle,
                 ),
               ),
               space,
-              const RoundTextField(
+              RoundTextField(
                 title: "Username",
                 obscureStatus: false,
+                controllerStatus: emailController,
               ),
               smallSpace,
-              const RoundTextField(
+              RoundTextField(
                 title: "Password",
                 obscureStatus: true,
+                controllerStatus: passwordController,
               ),
               smallSpace,
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  authService.register(
+                      emailController.text, passwordController.text);
+                },
                 child: const Text(
                   'Create an Account',
                   style: kButtonTextStyle,
@@ -93,7 +107,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
               const Center(
                 child: Text(
                   "Already Have An Account?",
-                  style: kSubTextStyle,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               smallSpace,

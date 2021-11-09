@@ -4,8 +4,9 @@ import 'package:mpsd_assignment/constant.dart';
 class RoundTextField extends StatelessWidget {
   final String title;
   final bool obscureStatus;
+  final TextEditingController controllerStatus; 
   const RoundTextField(
-      {Key? key, required this.title, required this.obscureStatus})
+      {Key? key, required this.title, required this.obscureStatus, required this.controllerStatus})
       : super(key: key);
 
   @override
@@ -18,7 +19,8 @@ class RoundTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(20),
             border: Border.all(
                 width: 1, color: kSecondaryColor, style: BorderStyle.solid)),
-        child: TextFormField(
+        child: TextField(
+          controller: controllerStatus, 
           obscureText: obscureStatus,
           decoration: InputDecoration(
               hintText: title,
