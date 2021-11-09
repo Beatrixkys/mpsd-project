@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mpsd_assignment/pages/authenticate_pages/register.dart';
 import 'package:mpsd_assignment/pages/components/animated_image.dart';
 import 'package:mpsd_assignment/pages/components/round_text_field.dart';
 import 'package:mpsd_assignment/services/auth.dart';
@@ -121,7 +122,16 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     smallSpace,
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const RegisterScreen();
+                            },
+                          ),
+                        );
+                      },
                       child: const Text(
                         'Register',
                         style: kButtonTextStyle,
