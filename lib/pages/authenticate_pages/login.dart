@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:mpsd_assignment/pages/components/animated_image.dart';
 import 'package:mpsd_assignment/pages/components/round_text_field.dart';
+import 'package:mpsd_assignment/services/auth.dart';
+import 'package:provider/src/provider.dart';
 
 import '../../constant.dart';
 
@@ -38,6 +40,10 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final TextEditingController emailController = TextEditingController();
+    final TextEditingController passwordController = TextEditingController();
+    final authService = Provider.of<AuthService>(context);
+
     return Container(
       decoration: const BoxDecoration(
         gradient: LinearGradient(colors: [
@@ -61,7 +67,10 @@ class _LoginScreenState extends State<LoginScreen> {
               const Center(
                 child: Text(
                   "Hi There!",
-                  style: kSubTextStyle,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
               const SizedBox(
@@ -71,41 +80,56 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
               ),
               space,
-              const RoundTextField(
+              RoundTextField(
                 title: "Username",
                 obscureStatus: false,
+                controllerStatus: emailController,
               ),
               smallSpace,
-              const RoundTextField(
+              RoundTextField(
                 title: "Password",
                 obscureStatus: true,
+                controllerStatus: passwordController,
               ),
               smallSpace,
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  'Log In',
-                  style: kButtonTextStyle,
+              Container(
+                width: 300,
+                child: Column(
+                  children: [
+                    ElevatedButton(
+                      onPressed: () {
+                        authService.signIn(
+                            emailController.text, passwordController.text);
+                      },
+                      child: const Text(
+                        'Log In',
+                        style: kButtonTextStyle,
+                      ),
+                      style: kButtonStyle,
+                    ),
+                    const Divider(
+                      height: 20.0,
+                    ),
+                    const Center(
+                      child: Text(
+                        "Don't Have An Account?",
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    smallSpace,
+                    ElevatedButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Register',
+                        style: kButtonTextStyle,
+                      ),
+                      style: kButtonStyle,
+                    ),
+                  ],
                 ),
-                style: kButtonStyle,
-              ),
-              const Divider(
-                height: 20.0,
-              ),
-              const Center(
-                child: Text(
-                  "Don't Have An Account?",
-                  style: kSubTextStyle,
-                ),
-              ),
-              smallSpace,
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text(
-                  'Register',
-                  style: kButtonTextStyle,
-                ),
-                style: kButtonStyle,
               ),
               space,
             ],
