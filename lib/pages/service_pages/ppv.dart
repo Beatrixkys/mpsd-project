@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mpsd_assignment/constant.dart';
 import 'package:mpsd_assignment/pages/components/menu.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PPV extends StatefulWidget {
   const PPV({Key? key}) : super(key: key);
@@ -51,7 +52,10 @@ class _PPVState extends State<PPV> {
                         'PPV Dewan Sivik',
                         style: kButtonTextStyle,
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        _launchURL(
+                            "https://www.google.com/maps/place/Dewan+Sivik+MBPJ/@3.097014,101.6431866,17z/data=!3m1!4b1!4m5!3m4!1s0x31cc4bc41b361ee9:0xaae0de60b9fb58!8m2!3d3.0970769!4d101.6453786");
+                      },
                     ),
                   ),
                   Card(
@@ -63,7 +67,10 @@ class _PPVState extends State<PPV> {
                         'PPV University Malaya',
                         style: kButtonTextStyle,
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        _launchURL(
+                            "https://www.google.com/maps/place/University+of+Malaya/@3.12091,101.6516527,17z/data=!3m1!4b1!4m5!3m4!1s0x31cdb47024217187:0x1e85ebc65d47d641!8m2!3d3.1209046!4d101.6538414");
+                      },
                     ),
                   ),
                 ],
@@ -73,5 +80,13 @@ class _PPVState extends State<PPV> {
         ],
       ),
     );
+  }
+}
+
+_launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }

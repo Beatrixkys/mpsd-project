@@ -70,10 +70,12 @@ class _RiskCalculatorState extends State<RiskCalculator> {
                     style: kTitleTextstyle,
                   ),
                   smallSpace,
+                  /*
                   RoundTextField(
                     title: "Name the State",
                     obscureStatus: false,
                     controllerStatus: txtController,
+                    savedValue: "live",
                   ),
                   space,
                   const Text(
@@ -85,7 +87,8 @@ class _RiskCalculatorState extends State<RiskCalculator> {
                     title: "Select Place",
                     obscureStatus: false,
                     controllerStatus: txtController1,
-                  ),
+                    savedValue: "place",
+                  ),*/
                   space,
                   ElevatedButton.icon(
                     onPressed: () {},

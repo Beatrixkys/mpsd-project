@@ -25,8 +25,8 @@ class _AnimatedImageState extends State<AnimatedImage>
 
   @override
   void dispose() {
-    super.dispose();
     _controller.dispose();
+    super.dispose();
   }
 
   @override

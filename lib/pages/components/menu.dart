@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:mpsd_assignment/constant.dart';
-import 'package:mpsd_assignment/pages/authenticate_pages/login.dart';
-import 'package:mpsd_assignment/pages/authenticate_pages/register.dart';
 import 'package:mpsd_assignment/pages/service_pages/calculator.dart';
 import 'package:mpsd_assignment/pages/home.dart';
 import 'package:mpsd_assignment/pages/service_pages/ppv.dart';
@@ -147,44 +145,6 @@ class NavDrawer extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) {
                     return const RiskCalculator();
-                  },
-                ),
-              );
-            },
-          ),
-          ListTile(
-            leading: const Icon(
-              Icons.calculate_outlined,
-            ),
-            title: const Text(
-              'Risk Calculator',
-              style: kButtonTextStyle,
-            ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const LoginScreen();
-                  },
-                ),
-              );
-            },
-          ),
-          ListTile(
-            leading: const Icon(
-              Icons.calculate_outlined,
-            ),
-            title: const Text(
-              'Risk Calculator',
-              style: kButtonTextStyle,
-            ),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return const RegisterScreen();
                   },
                 ),
               );

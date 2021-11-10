@@ -4,6 +4,8 @@ import 'package:mpsd_assignment/constant.dart';
 import 'package:mpsd_assignment/pages/components/header.dart';
 import 'package:mpsd_assignment/pages/components/menu.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 class SOP extends StatefulWidget {
   const SOP({Key? key}) : super(key: key);
 
@@ -112,6 +114,8 @@ class _SOPState extends State<SOP> {
                   "Interstate travel is now allowed since the vaccination rates are higher and economy needs to run.",
               image: "assets/images/car.png",
               title: "Interstate Travel Allowed",
+              site:
+                  "https://constitution.congress.gov/browse/essay/amdt14_S1_4_3_2_1/",
             ),
 
             const PreventCard(
@@ -119,6 +123,8 @@ class _SOPState extends State<SOP> {
                   "The fully vaccinated population can now dine out, they just have to follow the SOPs",
               image: "assets/images/dining.png",
               title: "Dining Out for Fully Vaccinated",
+              site:
+                  "https://foodinstitute.com/focus/cdc-links-dining-out-to-increased-covid-risk/",
             ),
 
             //insert card that diverts to external link
@@ -133,11 +139,13 @@ class PreventCard extends StatelessWidget {
   final String image;
   final String title;
   final String text;
+  final String site;
   const PreventCard({
     Key? key,
     required this.image,
     required this.title,
     required this.text,
+    required this.site,
   }) : super(key: key);
 
   @override
@@ -188,6 +196,7 @@ class PreventCard extends StatelessWidget {
                     TextButton(
                       onPressed: () {
                         //insert link of sites to navigate to in the future
+                        _launchURL(site);
                       },
                       child: SvgPicture.asset("assets/icons/forward.svg"),
                     ),
@@ -244,5 +253,13 @@ class SymptomCard extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+_launchURL(String url) async {
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
   }
 }
