@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mpsd_assignment/constant.dart';
 import 'package:mpsd_assignment/pages/components/menu.dart';
+import 'package:mpsd_assignment/services/auth.dart';
 
 class Profile extends StatefulWidget {
   const Profile({Key? key}) : super(key: key);
@@ -10,6 +11,8 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> {
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -64,12 +67,14 @@ class _ProfileState extends State<Profile> {
           ),
           space,
           ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () async {
+              await _auth.signOut();
+            },
             icon: const Icon(
               Icons.edit_outlined,
             ),
             label: const Text(
-              'Edit Profile Details',
+              'Log Out',
               style: kButtonTextStyle,
             ),
             style: kButtonStyle,

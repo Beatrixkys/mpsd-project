@@ -20,10 +20,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        Provider<AuthService>(create: (_) => AuthService()),
-      ],
+    return StreamProvider<MyUser?>.value(
+      value: AuthService().user,
+      initialData: null,
       child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -43,7 +42,17 @@ class AuthenticationWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<MyUser?>(context);
+
+    if (user == null) {
+      return const LoginScreen();
+    } else {
+      return const HomeScreen();
+    }
+
+/*
     final authService = Provider.of<AuthService>(context);
+
     return StreamBuilder(
         stream: authService.user,
         builder: (_, AsyncSnapshot<MyUser?> snapshot) {
@@ -57,6 +66,6 @@ class AuthenticationWrapper extends StatelessWidget {
               ),
             );
           }
-        });
+        }); */
   }
 }
