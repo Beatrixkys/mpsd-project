@@ -297,6 +297,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ],
                     ),
                     space,
+
+                    /*
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
@@ -334,6 +336,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         ),
                       ),
                     ),
+                    */
                   ],
                 ),
               ),

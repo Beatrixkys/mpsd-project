@@ -74,6 +74,7 @@ class NavDrawer extends StatelessWidget {
               );
             },
           ),
+          /*
           ListTile(
             leading: const Icon(
               Icons.stacked_bar_chart_outlined,
@@ -93,6 +94,7 @@ class NavDrawer extends StatelessWidget {
               );
             },
           ),
+          */
           ListTile(
             leading: const Icon(
               Icons.local_hospital_outlined,
@@ -131,6 +133,7 @@ class NavDrawer extends StatelessWidget {
               );
             },
           ),
+          /*
           ListTile(
             leading: const Icon(
               Icons.calculate_outlined,
@@ -150,6 +153,7 @@ class NavDrawer extends StatelessWidget {
               );
             },
           ),
+          */
         ],
       ),
     );
