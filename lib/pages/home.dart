@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mpsd_assignment/constant.dart';
 import 'package:mpsd_assignment/pages/service_pages/calculator.dart';
 import 'package:mpsd_assignment/pages/components/header.dart';
@@ -51,6 +52,14 @@ class _HomeScreenState extends State<HomeScreen> {
     }
 
     locationData = await location.getLocation();
+  }
+
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(45.521563, -122.677433);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
   }
 
   //Scroll Variables
@@ -215,9 +224,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
 
                       //TODO: replace with working map soon
-                      child: Image.asset(
-                        "assets/images/map.png",
-                        fit: BoxFit.contain,
+                      child: GoogleMap(
+                        onMapCreated: _onMapCreated,
+                        initialCameraPosition: CameraPosition(
+                          target: _center,
+                          zoom: 11.0,
+                        ),
                       ),
                     ),
                     space,

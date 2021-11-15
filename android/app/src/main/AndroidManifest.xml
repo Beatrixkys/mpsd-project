@@ -2,7 +2,12 @@
     package="com.example.mpsd_assignment">
    <application
         android:label="mpsd_assignment"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        >
+
+        <meta-data android:name="com.google.android.geo.API_KEY"
+               android:value="AIzaSyAoSpAzjeA16yXKG2gk6stHSsCI7Hfi7lY"/>
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

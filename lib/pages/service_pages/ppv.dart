@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:mpsd_assignment/constant.dart';
 import 'package:mpsd_assignment/pages/components/menu.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -11,6 +12,40 @@ class PPV extends StatefulWidget {
 }
 
 class _PPVState extends State<PPV> {
+  late GoogleMapController mapController;
+
+  final LatLng _center = const LatLng(45.521563, -122.677433);
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
+  }
+
+  //Scroll Variables
+  final controller = ScrollController();
+  double offset = 0;
+
+  //Scroll Function
+  @override
+  void initState() {
+    // implement initState
+    super.initState();
+    controller.addListener(onScroll);
+  }
+
+  @override
+  void dispose() {
+    // implement dispose
+    controller.dispose();
+    mapController.dispose();
+    super.dispose();
+  }
+
+  void onScroll() {
+    setState(() {
+      offset = (controller.hasClients) ? controller.offset : 0;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,9 +67,12 @@ class _PPVState extends State<PPV> {
             ),
 
             //replace with working map soon
-            child: Image.asset(
-              "assets/images/map.png",
-              fit: BoxFit.contain,
+            child: GoogleMap(
+              onMapCreated: _onMapCreated,
+              initialCameraPosition: CameraPosition(
+                target: _center,
+                zoom: 11.0,
+              ),
             ),
           ),
           space,
